@@ -1,3 +1,11 @@
+V2:
+loadstring(game:HttpGet('https://raw.githubusercontent.com/wickddd/IncrementalScriptHub/main/MainV2.Lua'))()
+V2 has 497 lines more optimized 
+
+V1:
+loadstring(game:HttpGet('https://raw.githubusercontent.com/wickddd/IncrementalScriptHub/main/MainV1.Lua'))()
+V1 has 1011
+
 supported games for now:
   https://www.roblox.com/games/14099066380/48H-Apple-Incremental
   https://www.roblox.com/games/10921335290/part-tiering-incremental-beta
