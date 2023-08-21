@@ -101,7 +101,7 @@ local function MakeX(Parent)
 end
 
 local function MakeGui()
-	if place == 14099066380 then
+	if place ~= 14099066380 then
 		local AppleIncGui = MakeMainScreen('AppleIncGui')
 		local main = MakeMainFrame(AppleIncGui)
 		local GT = MakeGameTitle('Apple Incremental',main)
@@ -150,6 +150,7 @@ local function MakeGui()
 		g.Position = UDim2.new(0.319999993, 0, 1.22857141, 0)
 		g.Size = UDim2.new(0, 26, 0, 26)
 		g.ZIndex = 100
+		g.Text = ''
 
 		UICorner_5.CornerRadius = UDim.new(0, 11)
 		UICorner_5.Parent = g
@@ -161,6 +162,7 @@ local function MakeGui()
 		n.Position = UDim2.new(0.779999971, 0, 1.22857141, 0)
 		n.Size = UDim2.new(0, 26, 0, 26)
 		n.ZIndex = 100
+		n.Text = ''
 
 		UICorner_6.CornerRadius = UDim.new(0, 11)
 		UICorner_6.Parent = n
@@ -172,6 +174,7 @@ local function MakeGui()
 		d.Position = UDim2.new(0.550000012, 0, 1.22857141, 0)
 		d.Size = UDim2.new(0, 26, 0, 26)
 		d.ZIndex = 100
+		d.Text = ''
 
 		UICorner_7.CornerRadius = UDim.new(0, 11)
 		UICorner_7.Parent = d
