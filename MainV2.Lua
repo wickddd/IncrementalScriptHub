@@ -1,7 +1,7 @@
 local place = game.PlaceId
 local t = false
 local UserInputService = game:GetService('UserInputService')
-
+local gui
 local dragging
 local dragInput
 local dragStart
@@ -31,6 +31,7 @@ local function MakeMainFrame(Parent)
 	Frame.Position = UDim2.new(0.623593509, 0, 0.584345818, 0)
 	Frame.Size = UDim2.new(0, 500, 0, 303)
 	Frame.ZIndex = 300
+	gui = Frame
 	return Frame
 end
 
@@ -235,39 +236,6 @@ local function MakeGui()
 			while task.wait() do re:FireServer() if value2 == 0 then break end end
 		end)
 
-		local gui = main
-
-		local function update(input)
-			local delta = input.Position - dragStart
-			gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-		end
-
-		gui.InputBegan:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-				dragging = true
-				dragStart = input.Position
-				startPos = gui.Position
-
-				input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						dragging = false
-					end
-				end)
-			end
-		end)
-
-		gui.InputChanged:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-				dragInput = input
-			end
-		end)
-
-		UserInputService.InputChanged:Connect(function(input)
-			if input == dragInput and dragging then
-				update(input)
-			end
-		end)
-
 	elseif place ~= 10921335290 then
 		local PTIGUI = MakeMainScreen('PTIGUI')
 		local main = MakeMainFrame(PTIGUI)
@@ -338,38 +306,6 @@ local function MakeGui()
 			XClicked(PTIGUI)
 		end)
 
-		local gui = main
-
-		local function update(input)
-			local delta = input.Position - dragStart
-			gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-		end
-
-		gui.InputBegan:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-				dragging = true
-				dragStart = input.Position
-				startPos = gui.Position
-
-				input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						dragging = false
-					end
-				end)
-			end
-		end)
-
-		gui.InputChanged:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-				dragInput = input
-			end
-		end)
-
-		UserInputService.InputChanged:Connect(function(input)
-			if input == dragInput and dragging then
-				update(input)
-			end
-		end)
 	elseif game.PlaceId == 11956378658 then
 		local PIGUI = MakeMainScreen('PIGUI')
 		local main = MakeMainFrame(PIGUI)
@@ -403,39 +339,7 @@ local function MakeGui()
 			local re = game:GetService('ReplicatedStorage'):WaitForChild('Events'):WaitForChild('EarnRevolutions')
 			while task.wait() do re:FireServer() if value3 == 0 then break end end
 		end)
-
-		local gui = main
-
-		local function update(input)
-			local delta = input.Position - dragStart
-			gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-		end
-
-		gui.InputBegan:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-				dragging = true
-				dragStart = input.Position
-				startPos = gui.Position
-
-				input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						dragging = false
-					end
-				end)
-			end
-		end)
-
-		gui.InputChanged:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-				dragInput = input
-			end
-		end)
-
-		UserInputService.InputChanged:Connect(function(input)
-			if input == dragInput and dragging then
-				update(input)
-			end
-		end)
+			gui = main
 	elseif game.PlaceId == 10667855575 then
 		local SSGUI = MakeMainScreen('SSGUI')
 		local main = MakeMainFrame(SSGUI)
@@ -446,41 +350,9 @@ local function MakeGui()
 		X.MouseButton1Click:Connect(function()
 			XClicked(SSGUI)
 		end)
+
+	FuckTheGame.MouseButton1Click:Connect(function() game:GetService('ReplicatedStorage'):WaitForChild('Remotes'):WaitForChild('ValueChanged'):FireServer(99999999999999999999999999999999999999,9999999999999999,99999999999999999,9999999999999999,9999999999999999,9999999999999999,9999999999999999) end)	
 		
-		FuckTheGame.MouseButton1Click:Connect(function() game:GetService('ReplicatedStorage'):WaitForChild('Remotes'):WaitForChild('ValueChanged'):FireServer(99999999999999999999999999999999999999,9999999999999999,99999999999999999,9999999999999999,9999999999999999,9999999999999999,9999999999999999) end)
-
-		local gui = main
-		
-		local function update(input)
-			local delta = input.Position - dragStart
-			gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-		end
-
-		gui.InputBegan:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-				dragging = true
-				dragStart = input.Position
-				startPos = gui.Position
-
-				input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						dragging = false
-					end
-				end)
-			end
-		end)
-
-		gui.InputChanged:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-				dragInput = input
-			end
-		end)
-
-		UserInputService.InputChanged:Connect(function(input)
-			if input == dragInput and dragging then
-				update(input)
-			end
-		end)
 	else 
 	script:Destroy()
 	print('not a supported game')
@@ -490,6 +362,13 @@ end
 MakeGui()
 
 game.Players.LocalPlayer.CharacterAdded:Connect(function() if t ~= true then MakeGui() else script:Destroy() end end)
+
+if gui then
+	local function update(input) local delta = input.Position - dragStart gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y) end
+	gui.InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then dragging = true dragStart = input.Position startPos = gui.Position input.Changed:Connect(function() if input.UserInputState == Enum.UserInputState.End then dragging = false end end) end end)
+	gui.InputChanged:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then dragInput = input end end)
+	UserInputService.InputChanged:Connect(function(input) if input == dragInput and dragging then update(input) end end) 
+end
 --[[
 	made by wickdd
 	ty z1u73 for ideas
