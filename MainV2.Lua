@@ -339,7 +339,6 @@ local function MakeGui()
 			local re = game:GetService('ReplicatedStorage'):WaitForChild('Events'):WaitForChild('EarnRevolutions')
 			while task.wait() do re:FireServer() if value3 == 0 then break end end
 		end)
-			gui = main
 	elseif game.PlaceId == 10667855575 then
 		local SSGUI = MakeMainScreen('SSGUI')
 		local main = MakeMainFrame(SSGUI)
