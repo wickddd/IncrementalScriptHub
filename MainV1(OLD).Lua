@@ -1,3 +1,4 @@
+--pls do not use this shitty script :sob:
 local place = game.PlaceId
 local UserId = game.Players.LocalPlayer.UserId
 local t = false
