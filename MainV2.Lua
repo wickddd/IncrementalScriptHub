@@ -7,10 +7,7 @@ local dragInput
 local dragStart
 local startPos
 
-local function XClicked(GUI)
-	GUI:Destroy()
-	t = true
-end
+local function XClicked(GUI) GUI:Destroy() t = true script:Destroy() end
 
 local function MakeMainScreen(Name)
 	local ScreenGui = Instance.new('ScreenGui')
@@ -26,7 +23,6 @@ local function MakeMainFrame(Parent)
 	Frame.Parent = Parent
 	Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 	Frame.BackgroundTransparency = 0.05
-	Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Frame.BorderSizePixel = 0
 	Frame.Position = UDim2.new(0.623593509, 0, 0.584345818, 0)
 	Frame.Size = UDim2.new(0, 500, 0, 303)
@@ -41,7 +37,6 @@ local function MakeTextButton(Name, Parent, Text, Slot)
 	button.Parent = Parent
 	button.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 	button.BackgroundTransparency = 0.5
-	button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	button.BorderSizePixel = 0
 	button.Size = UDim2.new(0, 200, 0, 35)
 	button.ZIndex = 7
@@ -134,7 +129,7 @@ local function MakeGui()
 		r.ZIndex = 100
 		r.Font = Enum.Font.Nunito
 		r.Text = ''
-		
+
 		UICorner_4.CornerRadius = UDim.new(0, 11)
 		UICorner_4.Parent = r
 
@@ -208,17 +203,17 @@ local function MakeGui()
 			local re = game:GetService('ReplicatedStorage').CollectApple:FindFirstChild(AppleType.Value)
 			while task.wait() do re:FireServer() if value == 0 then break end end
 		end)
-		
+
 		g.MouseButton1Click:Connect(function()
 			AppleType.Value = 'GoldenApple'
 			TextLabel.Text = 'Current: Gold Apple'
 		end)
-		
+
 		r.MouseButton1Click:Connect(function()
 			AppleType.Value = 'Apple'
 			TextLabel.Text = 'Current: Apple'
 		end)
-		
+
 		n.MouseButton1Click:Connect(function()
 			AppleType.Value = 'NightfallApple'
 			TextLabel.Text = 'Current: Nightfall Apple'
@@ -236,7 +231,7 @@ local function MakeGui()
 			while task.wait() do re:FireServer() if value2 == 0 then break end end
 		end)
 
-	elseif place ~= 10921335290 then
+	elseif place == 10921335290 then
 		local PTIGUI = MakeMainScreen('PTIGUI')
 		local main = MakeMainFrame(PTIGUI)
 		local X = MakeX(main)
@@ -247,15 +242,15 @@ local function MakeGui()
 		local PartifySpam = MakeTextButton('PartSpam',main,'Toggle Partify Spam',4)
 		local ChargeSpam = MakeTextButton('CS',main,'Toggle Charge Spam',5)
 		local GoldSpam = MakeTextButton('GS',main,'Toggle Gold Spam',6)
-			
+
 		local value = 0
 		PreSpam.MouseButton1Click:Connect(function()
-				if value == 1 then value = 0 elseif value == 0 then value = 1 end
-				local re = game:GetService('ReplicatedStorage'):WaitForChild('Events'):WaitForChild('Prestige')
-				while task.wait() do
-					re:FireServer('Prestige')
-					if value == 0 then break end
-				end
+			if value == 1 then value = 0 elseif value == 0 then value = 1 end
+			local re = game:GetService('ReplicatedStorage'):WaitForChild('Events'):WaitForChild('Prestige')
+			while task.wait() do
+				re:FireServer('Prestige')
+				if value == 0 then break end
+			end
 		end)
 
 		RebirthSpam.MouseButton1Click:Connect(function()
@@ -302,9 +297,7 @@ local function MakeGui()
 			while task.wait() do re:FireServer() if value5 == 0 then break end end
 		end)
 
-		X.MouseButton1Click:Connect(function()
-			XClicked(PTIGUI)
-		end)
+		X.MouseButton1Click:Connect(function() XClicked(PTIGUI) end)
 
 	elseif game.PlaceId == 11956378658 then
 		local PIGUI = MakeMainScreen('PIGUI')
@@ -314,10 +307,8 @@ local function MakeGui()
 		local Spamdrop = MakeTextButton('SpamDrop',main,'Toggle Ball Drop Spam',1)
 		local RevSpam = MakeTextButton('RS',main,'Toggle Revolution Spam',2)
 		local SPS = MakeTextButton('SPS',main,'Toggle Special Peg Spam',3)
-		
-		X.MouseButton1Click:Connect(function()
-			XClicked(PIGUI)
-		end)
+
+		X.MouseButton1Click:Connect(function() XClicked(PIGUI) end)
 
 		local value = 0
 		Spamdrop.MouseButton1Click:Connect(function()
@@ -346,15 +337,13 @@ local function MakeGui()
 		local FuckTheGame = MakeTextButton('FTG',main,'Destroy The Game',1)
 		local X = MakeX(SSGUI)
 
-		X.MouseButton1Click:Connect(function()
-			XClicked(SSGUI)
-		end)
+		X.MouseButton1Click:Connect(function() XClicked(SSGUI) end)
 
-	FuckTheGame.MouseButton1Click:Connect(function() game:GetService('ReplicatedStorage'):WaitForChild('Remotes'):WaitForChild('ValueChanged'):FireServer(99999999999999999999999999999999999999,9999999999999999,99999999999999999,9999999999999999,9999999999999999,9999999999999999,9999999999999999) end)	
-		
+		FuckTheGame.MouseButton1Click:Connect(function() game:GetService('ReplicatedStorage'):WaitForChild('Remotes'):WaitForChild('ValueChanged'):FireServer(99999999999999999999999999999999999999,9999999999999999,99999999999999999,9999999999999999,9999999999999999,9999999999999999,9999999999999999) end)	
+
 	else 
-	script:Destroy()
-	print('not a supported game')
+		script:Destroy()
+		print('not a supported game')
 	end
 end
 
