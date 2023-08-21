@@ -101,7 +101,7 @@ local function MakeX(Parent)
 end
 
 local function MakeGui()
-	if place ~= 14099066380 then
+	if place == 14099066380 then
 		local AppleIncGui = MakeMainScreen('AppleIncGui')
 		local main = MakeMainFrame(AppleIncGui)
 		local GT = MakeGameTitle('Apple Incremental',main)
