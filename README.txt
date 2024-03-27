@@ -1,3 +1,46 @@
+all of this is dated asf (due to roblox byfron being a thing)
+
+if you do have exploits i cannot confirm that this works since i do not have exploits, glhf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 UPDATE V2:
 way better optimization (647 less lines than V1)
 draggable ui
