@@ -46,7 +46,7 @@ way better optimization (647 less lines than V1)
 draggable ui
 
 V2 loadstring:
-loadstring(game:HttpGet('https://raw.githubusercontent.com/wickddd/IncrementalScriptHub/main/MainV2.Lua'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/wickddd/IncrementalScriptHub/main/MainV2.luau'))()
 
 supported games for now:
   https://www.roblox.com/games/14099066380/48H-Apple-Incremental
